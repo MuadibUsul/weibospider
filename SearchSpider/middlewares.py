@@ -7,9 +7,9 @@
 import requests
 from scrapy import signals
 import random
-from SearchSpider.scrapy_redis.user_agents import agents
+from SearchSpider.CookiePool.agents import agents
 
-from SearchSpider.scrapy_redis.storage import RedisClient
+from SearchSpider.CookiePool.storage import RedisClient
 
 
 class SearchspiderSpiderMiddleware(object):

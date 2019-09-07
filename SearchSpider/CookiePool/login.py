@@ -11,7 +11,7 @@ from hashlib import md5
 import binascii
 import time
 import logging
-from SearchSpider.scrapy_redis.user_agents import agents
+from SearchSpider.CookiePool.agents import agents
 
 
 class Chaojiying_Client(object):
@@ -192,17 +192,17 @@ def get_cookies(username, password):
     A = WeiboLogin(username=username, password=password)
     # 调用login()方法
     response = A.Login()
-    # print(response.cookies)
     all_cookies = response.cookies.items()
     if all_cookies:
-        cookies = all_cookies[5]
-        # print(cookies)
-        logging.debug('get cookies succedss!')
-        print(cookies)
-        return cookies[1]
+        # for i in all_cookies:
+        #     print(i)
+        cookie = all_cookies[5]
+        logging.debug('Get Cookies Succedss!')
+        print(cookie)
+        return cookie
     else:
         print("获取 " + username + " cookies失败")
 
 
 # if __name__ == '__main__':
-#     print(get_cookies("0012232080400", "gew25619"))
+#     get_cookies("0012232080400", "gew25619")

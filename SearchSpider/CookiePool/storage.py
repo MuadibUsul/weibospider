@@ -2,15 +2,14 @@
 
 import random
 import redis
-from SearchSpider.scrapy_redis.setting import *
 
 
 class RedisClient(object):
-    def __init__(self, type, website, host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD):
+    def __init__(self, type, website, host='localhost', port=6379, password='suchen'):
         """
         初始化ｒｅｄｉｓ连接
-        :param type:
-        :param website:
+        :param type: account or cookie
+        :param website: 站点名称
         :param host:地址
         :param port:端口
         :param password:密码
@@ -29,7 +28,6 @@ class RedisClient(object):
 
     def set(self, username, value):
         """
-
         :param username: 用户名
         :param value: 密码或者cookie
         :return:
@@ -38,7 +36,7 @@ class RedisClient(object):
 
     def get(self, username):
         """
-
+        根据键名获取键值
         :param username: 用户名
         :return:
         """
@@ -80,5 +78,6 @@ class RedisClient(object):
         """
         return self.db.hgetall(self.name())
 
+
 # if __name__ == '__main__':
-#     print(RedisClient("cookies", "weibo").random())
+#     print(RedisClient("cookies", "weibo").set('suchen', 'shshh'))

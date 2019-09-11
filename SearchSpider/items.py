@@ -13,7 +13,7 @@ class SearchspiderItem(Item):
     pass
 
 
-class InformationItem(Item):
+class about(Item):
     """ 个人信息 """
     _id = Field()  # 用户ID
     NickName = Field()  # 昵称
@@ -25,7 +25,16 @@ class InformationItem(Item):
     Num_Tweets = Field()  # 微博数
     Num_Follows = Field()  # 关注数
     Num_Fans = Field()  # 粉丝数
-    Sex_Orientation = Field()  # 性取向
-    Marriage = Field()  # 婚姻状况
     URL = Field()  # 首页链接
+    update_time = Field()
 
+
+class blog(Item):
+    """微博信息"""
+    Public_Time = Field()  # 发布时间
+    Blog_Content = Field()  # 博文正文
+    Blog_tags = Field()  # 标签
+    Image_Links = Field()  # 插图链接
+    Fl_Frward = Field()  # 转发人数
+    Fl_Comment = Field()  # 评论人数
+    Fl_Like = Field()   # 点赞人数

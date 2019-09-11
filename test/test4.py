@@ -1,26 +1,27 @@
-# -*- encoding: utf-8 -*-
-# Written by CSDN: Mars Loo的博客
-
 from multiprocessing import Process
-import os
 
 
-def get_process(info):
-    print(info)
-    # *nix系统才有getpid及getppid方法
-    print('Process ID:', os.getpid())
-    print('Parent process ID:', os.getppid())
+def api():
+    while True:
+        print("this is api model")
 
 
-def func(name):
-    get_process('In func:')
-    print("Hello,", name)
+def Generate_Cookies():
+    print("this is Generate_Cookies model")
 
 
-if __name__ == "__main__":
-    get_process('In main:')
-    p = Process(target=func, args=('marsloo',))
-    # 开始子进程
-    p.start()
-    # 等待子进程结束
-    p.join()
+def Detector_Cookies():
+    print("this is Detector_Cookies model")
+
+
+def run():
+    api_process = Process(target=api())
+    generator_process = Process(target=Generate_Cookies())
+    detector_process = Process(target=Detector_Cookies())
+    generator_process.start()
+    detector_process.start()
+    api_process.start()
+
+
+if __name__ == '__main__':
+    run()

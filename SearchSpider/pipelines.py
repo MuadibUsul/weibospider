@@ -4,12 +4,9 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-
-
-# class SearchspiderPipeline(object):
-#     def process_item(self, item, spider):
-#         return item
+import re
 import pymongo
+import pymysql
 
 
 class MongoDBPipleline(object):
@@ -52,3 +49,16 @@ class MongoDBPipleline(object):
             except Exception:
                 pass
         return item
+
+#
+# class MysqlPipline(object):
+#     def __init__(self):
+#         db = pymysql.connect('localhost', 'root', 'suchen', 'sina')
+#         cursor = db.cursor()
+#         cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
+#         sql = """"""
+#         cursor.execute(sql)
+#         # 关闭数据库连接
+#         db.close()
+#
+#     def process_item(self, item, spider):

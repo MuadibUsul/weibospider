@@ -53,10 +53,8 @@ DOWNLOAD_DELAY = 3
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    # 'SearchSpider.middlewares.SearchspiderDownloaderMiddleware': 543,
     'SearchSpider.middlewares.UserAgentMiddleware': 401,
     'SearchSpider.middlewares.CookiesMiddleware': 401,
-    'SearchSpider.middlewares.IpMiddleware': 401,
 }
 
 # Enable or disable extensions
